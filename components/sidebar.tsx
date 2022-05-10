@@ -51,6 +51,8 @@ const musicMenu = [
   },
 ];
 
+const playlists = new Array(30).fill(1).map((_, i) => `Playlist ${i + 1}`);
+
 const Sidebar = () => {
   return (
     <Box
@@ -107,10 +109,18 @@ const Sidebar = () => {
           <Divider bg="green.800" marginY="10px" />
         </Box>
 
-        <Box height="66%" overflowY="auto">
-          {new Array(50).fill(1).map(() => (
-            <h1>Hi</h1>
-          ))}
+        <Box height="60%" overflowY="auto" paddingLeft="20px">
+          <List spacing={2}>
+            {playlists.map((list) => (
+              <ListItem key={list}>
+                <LinkBox>
+                  <NextLink href="/" passHref>
+                    <LinkOverlay>{list}</LinkOverlay>
+                  </NextLink>
+                </LinkBox>
+              </ListItem>
+            ))}
+          </List>
         </Box>
       </Box>
     </Box>
