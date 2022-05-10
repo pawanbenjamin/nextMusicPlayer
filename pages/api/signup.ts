@@ -45,6 +45,6 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       secure: process.env.NODE_ENV === "production",
     })
   );
-
+  delete user.password;
   res.json(user);
 };
