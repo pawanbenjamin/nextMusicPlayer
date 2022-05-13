@@ -20,6 +20,7 @@ import {
   MdEventBusy,
 } from "react-icons/md";
 import { usePlaylist } from "../lib/hooks";
+import playlist from "../pages/api/playlist";
 
 const navMenu = [
   {
@@ -117,7 +118,13 @@ const Sidebar = () => {
             {playlists.map((list) => (
               <ListItem key={list.id}>
                 <LinkBox>
-                  <NextLink href="/" passHref>
+                  <NextLink
+                    href={{
+                      pathname: "/playlist/[id]",
+                      query: { id: list.id },
+                    }}
+                    passHref
+                  >
                     <LinkOverlay>{list.name}</LinkOverlay>
                   </NextLink>
                 </LinkBox>
