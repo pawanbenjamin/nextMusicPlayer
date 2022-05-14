@@ -4,9 +4,10 @@ export const store = createStore({
   activeSongs: [],
   activeSong: null,
   changeActiveSongs: action((state: any, payload) => {
-    state.activesongs = payload;
+    state.activeSongs = payload;
   }),
   changeActiveSong: action((state: any, payload) => {
-    state.activesong = payload;
+    console.log("payload", payload);
+    state.activeSong = payload;
   }),
 });
